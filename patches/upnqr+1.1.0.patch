@@ -1,0 +1,17 @@
+diff --git a/node_modules/upnqr/lib/upnqr.js b/node_modules/upnqr/lib/upnqr.js
+index 767be59..590c63f 100644
+--- a/node_modules/upnqr/lib/upnqr.js
++++ b/node_modules/upnqr/lib/upnqr.js
+@@ -48,10 +48,10 @@ function encode (upn) {
+   }).join('\n')
+ }
+ 
+-function decode (code) {
++function decode (code, splitStr) {
+   if (code.length > 411) throw new UPNQRError('Code is too long')
+   let sum = 0
+-  const upn = code.split('\n').reduce((agg, val, i) => {
++  const upn = code.split(splitStr).reduce((agg, val, i) => {
+     const item = items[i]
+     if (i < 19) sum += val.length + 1
+     val = applyFilters(val, item && item.filterIn, item.name)

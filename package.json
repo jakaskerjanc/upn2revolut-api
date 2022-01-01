@@ -1,0 +1,23 @@
+{
+  "name": "revolutupn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jaka <jakaskerjanc@gmail.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "heroku-cleanup": "npx patch-package"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-ws": "^5.0.2",
+    "qrcode": "^1.5.0",
+    "socket.io": "^4.4.0",
+    "upnqr": "^1.1.0"
+  }
+}
