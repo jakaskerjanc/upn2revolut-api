@@ -1,5 +1,5 @@
 const { decode } = require("upnqr");
-
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
@@ -8,16 +8,13 @@ const bodyParser = require("body-parser");
 
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.text());
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
-app.get("/id/:id", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+app.get("/ping", (req, res) => {
+  res.send("OK");
 });
 
 app.post("/id/:id", (req, res) => {
